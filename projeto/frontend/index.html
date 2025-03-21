@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Front + API</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>Teste com Backend</h1>
+        <button class="btn" onclick="chamarApi()">Chamar API</button>
+        <div class="output" id="resposta"></div>
+    </div>
+
+    <script>
+        function chamarApi() {
+            fetch('/api/dados')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resposta').innerText = data.mensagem;
+                })
+                .catch(() => {
+                    document.getElementById('resposta').innerText = 'Erro ao chamar API';
+                });
+        }
+    </script>
+</body>
+
+</html>
